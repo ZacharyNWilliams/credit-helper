@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoanPosts from './components/LoanInfo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+function App() {let [isOn, setIsOn] = useState<boolean>(false);
+  // function ShowOrHide(){
+  
+  // }
+  
+  function setOffOrOn(){
+          isOn ? setIsOn(true) : setIsOn(true);
+      }
+      
+  
+  let showForm =  (isOn ? "whole-form-div-show" : "");
+  
+    return (
+     
+  
+  <div className={showForm}>
+  
+  <h1 className='main-title'>My thoughts</h1>
+  
+  <LoanPosts/>
+  
+  
+  </div>
   );
 }
 
