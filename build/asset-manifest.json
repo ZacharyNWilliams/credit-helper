@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/credit-helper/static/css/main.f855e6bc.css",
+    "main.js": "/credit-helper/static/js/main.ab994f36.js",
+    "static/js/453.0266b904.chunk.js": "/credit-helper/static/js/453.0266b904.chunk.js",
+    "index.html": "/credit-helper/index.html",
+    "main.f855e6bc.css.map": "/credit-helper/static/css/main.f855e6bc.css.map",
+    "main.ab994f36.js.map": "/credit-helper/static/js/main.ab994f36.js.map",
+    "453.0266b904.chunk.js.map": "/credit-helper/static/js/453.0266b904.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.ab994f36.js"
+  ]
+}
