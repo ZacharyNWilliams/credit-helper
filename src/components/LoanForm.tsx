@@ -1,43 +1,74 @@
 import { useState } from 'react';
-export interface LoanFormProps {
-    
-    addPost: Function
-  }
+import { Loan } from '../interfaces/loan';
 
+function LoanForm({ addPost }: { addPost: (loan: Loan) => void }) {
+  const [creditSum, setCreditSum] = useState<number | ''>(''); // Initial state as empty string
+  const [creditRate, setCreditRate] = useState<number | ''>(''); // Initial state as empty string
+  const [years, setYears] = useState<number | ''>(''); // Initial state as empty string
 
-export function LoanForm (props: LoanFormProps) {
-    const [creditSum, setCreditSum] = useState<number>();
-    const [creditRate, setCreditRate] = useState<number>();
-    const [years, setYears] = useState<number>();
-    
-   
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-    function onSubmit(e:React.FormEvent<HTMLElement>){
-      e.preventDefault();
-
-      props.addPost({creditSum: creditSum, creditRate:creditRate,years:years });
+    // Validation to ensure inputs are filled
+    if (creditSum === '' || creditRate === '' || years === '') {
+      alert('Please fill out all fields before submitting');
+      return;
     }
-   
-    
-    return (
-    <div >
-        <div id='whole-form-div'>
-            <form onSubmit = {onSubmit}>
-                <label id='' >Credit Sum</label>
-                <input id='' onChange={(e) => setCreditSum(Number(e.target.value))} type="number"  />
-                <label id=''>Credit Rate</label>
-                <input  id='' type="number" onChange={(e) => setCreditRate(Number(e.target.value))} />
-                <label id=''>Credit Rate</label>
-                <input  id='' type="number" onChange={(e) => setYears(Number(e.target.value))} />
-                {
-                <button  type="submit">Add Post</button>
-                
-}               
-            </form>
-        </div>
-    </div>
-    )
 
+    const newLoan: Loan = {
+      creditSum: Number(creditSum), // Ensure the value is treated as a number
+      creditRate: Number(creditRate),
+      years: Number(years)
+    };
 
+    addPost(newLoan);
 
+    // Reset form fields
+    setCreditSum('');
+    setCreditRate('');
+    setYears('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="creditSum">Credit Sum (RUB):</label>
+        <input
+          type="number"
+          id="creditSum"
+          placeholder="Enter the loan amount"
+          value={creditSum}
+          onChange={(e) => setCreditSum(e.target.value !== '' ? Number(e.target.value) : '')} // Handle empty input
+        />
+      </div>
+
+      <div>
+        <label htmlFor="creditRate">Credit Rate (%):</label>
+        <input
+          type="number"
+          id="creditRate"
+          placeholder="Enter the interest rate"
+          value={creditRate}
+          onChange={(e) => setCreditRate(e.target.value !== '' ? Number(e.target.value) : '')} // Handle empty input
+        />
+      </div>
+
+      <div>
+        <label htmlFor="years">Years:</label>
+        <input
+          type="number"
+          id="years"
+          placeholder="Enter the loan duration in years"
+          value={years}
+          onChange={(e) => setYears(e.target.value !== '' ? Number(e.target.value) : '')} // Handle empty input
+        />
+      </div>
+
+      <button type="submit">Submit Loan</button>
+    </form>
+  );
 }
+
+export default LoanForm;
+
+

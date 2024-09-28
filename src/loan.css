@@ -1,0 +1,171 @@
+/* Ensure the app takes up the entire page */
+body, html {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   box-sizing: border-box; /* Prevents elements from exceeding their size */
+ }
+ 
+ /* Container for the entire app */
+ #credit-app {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh; /* Ensures the container stretches the full height of the page */
+   background-color: #f0f0f0; /* Light background for contrast */
+ }
+
+
+ 
+ /* Styling for the form container */
+ #loan-form {
+   background-color: #fff;
+   width: 50%; /* Adjusted width */
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center; /* Center the text */
+ }
+ 
+ /* Title and navigation styling */
+ .main-title {
+   width: 100%;
+   background-color: #007bff; /* Primary blue */
+   color: white;
+   text-align: center;
+   padding: 10px;
+   border-radius: 5px;
+   margin-bottom: 20px;
+ }
+ 
+ .nav {
+   list-style: none;
+   display: flex;
+   justify-content: space-between;
+   padding: 0;
+ }
+ 
+ .credit-helper-button {
+   color: white;
+   cursor: pointer;
+   padding: 10px 20px;
+   background-color: #28a745; /* Green button */
+   border-radius: 5px;
+   transition: background-color 0.3s;
+ }
+ 
+ .credit-helper-button:hover {
+   background-color: #218838; /* Darker green on hover */
+ }
+ 
+ /* Loan list container */
+ .loan-list {
+   background-color: #e0f7fa; /* Light blue background */
+   padding: 15px;
+   margin-bottom: 15px;
+   width: 100%; /* Full width of the loan-form container */
+   
+   max-width: 500px; /* Set a maximum width to keep it compact */
+   border-radius: 10px;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+   text-align: center; /* Center the content */
+   margin: 0 auto; /* Ensure the loan list is centered */
+   display: block;
+   justify-content: center;
+ }
+ 
+ /* Heading styles */
+ .loan-list h1 {
+   font-size: 1.2rem;
+   margin: 10px 0;
+ }
+ 
+ .loan-list button {
+   background-color: #dc3545; /* Bootstrap's danger red */
+   color: white;
+   border: none;
+   padding: 8px 15px;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+ 
+ .loan-list button:hover {
+   background-color: #c82333; /* Darker red on hover */
+ }
+ 
+ /* Button for adding loans */
+ #add-loan-button {
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+ }
+ 
+ #Show-hide {
+   font-size: 1rem;
+   padding: 10px 20px;
+   background-color: #17a2b8; /* Bootstrap's info blue */
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+ 
+ #Show-hide:hover {
+   background-color: #138496; /* Darker blue on hover */
+ }
+ 
+ /* Modal styling */
+ .modal-content {
+   padding: 20px;
+   border-radius: 10px;
+ }
+ 
+ .modal-header {
+   border-bottom: none;
+ }
+ 
+ .modal-footer {
+   border-top: none;
+   justify-content: center;
+ }
+ 
+ /* Input fields inside the form */
+ input {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   box-sizing: border-box;
+ }
+
+
+ 
+ /* Make the layout responsive */
+ @media screen and (max-width: 768px) {
+   #loan-form {
+     width: 80%;
+   }
+   
+   .loan-list {
+     width: 90%; /* Adjust the loan list width for smaller screens */
+   }
+ }
+ 
+ @media screen and (max-width: 480px) {
+   #loan-form {
+     width: 100%;
+     padding: 15px;
+   }
+   
+   #add-loan-button {
+     margin-top: 15px;
+   }
+ }
+ 

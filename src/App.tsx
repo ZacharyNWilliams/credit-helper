@@ -1,32 +1,36 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import LoanPosts from './components/LoanInfo';
+import LoanPosts from './components/LoanPosts'; 
+import './loan.css';
 
-function App() {let [isOn, setIsOn] = useState<boolean>(false);
-  // function ShowOrHide(){
-  
-  // }
-  
-  function setOffOrOn(){
-          isOn ? setIsOn(true) : setIsOn(true);
-      }
-      
-  
-  let showForm =  (isOn ? "whole-form-div-show" : "");
-  
-    return (
-     
-  
-  <div className={showForm}>
-  
-  <h1 className='main-title'>My thoughts</h1>
-  
-  <LoanPosts/>
-  
-  
-  </div>
+function App() {
+  const [isOn, setIsOn] = useState<boolean>(false);
+
+  const toggleForm = () => {
+    setIsOn(prev => !prev); // Toggle the state
+  };
+
+  return (
+    <div id='credit-app'>
+      <div className='main-title'>
+        <nav>
+          <ul className='nav'>
+            <li className='credit-helper-button' onClick={toggleForm}>
+              Credit Helper
+            </li>
+            
+          </ul>
+        </nav>
+      </div>
+
+      {/* Show or hide form based on isOn state */}
+      <div className={`whole-form-div ${isOn ? 'whole-form-div-show' : ''}`}>
+        {/* LoanPosts component will be shown/hidden based on isOn */}
+        {isOn && <LoanPosts />}
+      </div>
+    </div>
   );
 }
 
 export default App;
+
